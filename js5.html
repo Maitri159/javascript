@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gymnastics Challenge</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: aqua;
+      background-color: darkblue;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gymnastics Challenge</h1>
+  <div id="results"></div>
+  <script>
+    const calcAverage = (scores) => scores.reduce((acc, score) => acc + score, 0) / scores.length;
+
+    function checkWinner(avgDolhins, avgKoalas) {
+      const results = document.getElementById("results");
+      if (avgDolhins > avgKoalas) {
+        results.textContent = `Dolphins win (${avgDolhins.toFixed(2)} vs. ${avgKoalas.toFixed(2)})`;
+      } else if (avgKoalas > avgDolhins) {
+        results.textContent = `Koalas win (${avgKoalas.toFixed(2)} vs. ${avgDolhins.toFixed(2)})`;
+      } else {
+        results.textContent = "No winner! Scores are too close.";
+      }
+    }
+
+    // Data 1
+    const dolphinsScores1 = [44, 23, 71];
+    const koalasScores1 = [65, 54, 49];
+
+    const avgDolhins1 = calcAverage(dolphinsScores1);
+    const avgKoalas1 = calcAverage(koalasScores1);
+
+    checkWinner(avgDolhins1, avgKoalas1);
+
+    // Data 2
+    // const dolphinsScores2 = [85, 54, 41];
+    // const koalasScores2 = [23, 34, 27];
+
+    // const avgDolhins2 = calcAverage(dolphinsScores2);
+    // const avgKoalas2 = calcAverage(koalasScores2);
+
+    // checkWinner(avgDolhins2, avgKoalas2);
+  </script>
+</body>
+
+</html>

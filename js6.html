@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #output {
+            text-align: center;
+
+        }
+
+        .box {
+            top: 8%;
+            left: 620px;
+            height: 260px;
+            width: 350px;
+            background-color: rgb(123, 239, 243);
+            position: absolute;
+            text-align: center;
+            padding-top: 2%;
+            margin-top: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Bill Calculator</h1>
+        <div id="output"></div>
+        <script>
+            function calcTip(bill) {
+                if (bill >= 50 && bill <= 300) {
+                    return bill * 0.15;
+                } else {
+                    return bill * 0.20;
+                }
+            }
+
+            const bills = [125, 555, 44];
+            const tips = bills.map(bill => calcTip(bill));
+            const totals = bills.map((bill, index) => bill + tips[index]);
+
+            document.getElementById('output').innerHTML = `
+            <p>Bills: ${bills.join(', ')}</p>
+            <p>Tips: ${tips.join(', ')}</p>
+            <p>Totals: ${totals.join(', ')}</p>
+        `;
+
+        </script>
+    </div>
+</body>
+
+</html>

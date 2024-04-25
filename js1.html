@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .box {
+            top: 8%;
+            left: 620px;
+            height: 500px;
+            width: 350px;
+            background-color: rgb(123, 239, 243);
+            position: absolute;
+            text-align: center;
+            padding-top: 2%;
+            margin-top: 1%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .container p {
+            margin-top: 10px;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>BMI Calculator</h1>
+        <div class="container">
+            <p>Mark's weight (kg):</p>
+            <input type="text" id="markWeight">
+            <p>Mark's height (m):</p>
+            <input type="text" id="markHeight">
+            <p>John's weight (kg):</p>
+            <input type="text" id="johnWeight">
+            <p>John's height (m):</p>
+            <input type="text" id="johnHeight"><br>
+            <button onclick="calculateBMI()">Calculate BMI</button>
+        </div>
+        <div class="results">
+            <p id="markBMI"></p>
+            <p id="johnBMI"></p>
+            <p id="comparison"></p>
+        </div>
+    </div>
+    <!-- <script>
+        function calculateBMI() {
+            const markWeight = document.getElementById('markWeight').value;
+            const markHeight = document.getElementById('markHeight').value;
+            const johnWeight = document.getElementById('johnWeight').value;
+            const johnHeight = document.getElementById('johnHeight').value;
+
+            const markBMI = markWeight / (markHeight * markHeight);
+            const johnBMI = johnWeight / (johnHeight * johnHeight);
+
+            document.getElementById('markBMI').innerHTML = `Mark's BMI: ${markBMI.toFixed(2)}`;
+            document.getElementById('johnBMI').innerHTML = `John's BMI: ${johnBMI.toFixed(2)}`;
+
+            const comparison = markBMI > johnBMI ? 'Mark has a higher BMI than John.' : 'John has a higher BMI than Mark.';
+            document.getElementById('comparison').innerHTML = comparison;
+        }
+    </script> -->
+
+
+    <script>
+        function calculateBMI() {
+            const markWeight = document.getElementById('markWeight').value;
+            const markHeight = document.getElementById('markHeight').value;
+            const johnWeight = document.getElementById('johnWeight').value;
+            const johnHeight = document.getElementById('johnHeight').value;
+
+            const markBMI = markWeight / (markHeight ** 2);
+            const johnBMI = johnWeight / (johnHeight * johnHeight);
+
+            document.getElementById('markBMI').innerHTML = `Mark's BMI: ${markBMI}`;
+            document.getElementById('johnBMI').innerHTML = `John's BMI: ${johnBMI}`;
+
+            const comparison = markBMI > johnBMI ? 'Mark has a higher BMI than John.' : 'John has a higher BMI than Mark.';
+            document.getElementById('comparison').innerHTML = comparison;
+        }
+    </script>
+</body>
+
+</html>

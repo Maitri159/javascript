@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: rgb(234, 255, 213);
+      background-color: rgb(18, 1, 109);
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: rgb(125, 208, 255);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>BMI Comparison</h1>
+  <div id="result"></div>
+
+  <script>
+    // Create objects for Mark and John
+    let mark = {
+      fullName: 'Mark Miller',
+      mass: 78,
+      height: 1.69,
+      calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+      }
+    };
+
+    let john = {
+      fullName: 'John Smith',
+      mass: 92,
+      height: 1.95,
+      calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+      }
+    };
+
+    // Calculate BMIs
+    mark.calcBMI();
+    john.calcBMI();
+
+    // Get the result div
+    let resultDiv = document.getElementById('result');
+
+    // Display who has the higher BMI
+    if (mark.bmi > john.bmi) {
+      resultDiv.textContent = `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})`;
+    } else if (john.bmi > mark.bmi) {
+      resultDiv.textContent = `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})`;
+    } else {
+      resultDiv.textContent = `${john.fullName} and ${mark.fullName} have the same BMI (${john.bmi})`;
+    }
+  </script>
+</body>
+
+</html>

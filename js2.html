@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        /* Your CSS styles here */
+        h1 {
+            text-align: center;
+        }
+
+        .box {
+            top: 8%;
+            left: 620px;
+            height: 240px;
+            width: 300px;
+            background-color: rgb(123, 239, 243);
+            position: absolute;
+            text-align: center;
+            padding-top: 2%;
+            margin-top: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+
+    <div class="box">
+        <form id="bmiForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name"><br> <br>
+            <label for="height">Height (cm):</label>
+            <input type="text" id="height" name="height" placeholder="Enter your height"><br><br>
+            <label for="weight">Weight (kg):</label>
+            <input type="text" id="weight" name="weight" placeholder="Enter your weight"><br> <br>
+            <button type="submit">Calculate BMI</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script>
+        const form = document.getElementById('bmiForm');
+        const results = document.getElementById('results');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+
+            // Calculate BMI
+            const bmi = weight / Math.pow(height / 100, 2);
+
+            let output;
+
+            if (bmi > 25) {
+                output = `${name}'s BMI is ${bmi.toFixed(2)}. You are overweight.`;
+            } else if (bmi < 18.5) {
+                output = `${name}'s BMI is ${bmi.toFixed(2)}. You are underweight.`;
+            } else {
+                output = `${name}'s BMI is ${bmi.toFixed(2)}. You have a normal weight.`;
+            }
+
+            results.innerHTML = output;
+        });
+    </script>
+</body>
+
+</html>

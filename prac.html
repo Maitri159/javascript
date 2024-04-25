@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const stud={
+            name: "maitri",
+            age: 23,
+            isPass: true,
+        }
+        console.log(stud);
+        console.log(typeof stud.age);
+        console.log(typeof stud.isPass);
+        //both ways are true for prinitng objects of collection made
+        console.log(stud.age);
+         console.log(stud["age"]);
+        // to print change the name 
+        
+        stud["age"]= stud["age"]+1;
+        console.log(stud.age)
+
+        stud["name"]= "payal";
+        console.log(stud.name);
+
+
+        let a= 5;
+        let b= 6;
+        console.log("a+b=", a+b);
+        console.log("--a=", --a)
+        console.log("a--", a--);
+        console.log(a)
+;
+    </script>
+</body>
+</html>
